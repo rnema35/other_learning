@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://dd5lsahxchuvh"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_85dwx"]
+[ext_resource type="PackedScene" uid="uid://dstmex0eaycla" path="res://player.tscn" id="1_87mxt"]
+[ext_resource type="Script" path="res://StartPosition.gd" id="3_1c3uw"]
+[ext_resource type="PackedScene" uid="uid://dy4gqxbk3i58q" path="res://hud.tscn" id="4_irgsv"]
+
+[node name="main" type="Node"]
+script = ExtResource("1_85dwx")
+
+[node name="Player" parent="." instance=ExtResource("1_87mxt")]
+metadata/_edit_group_ = true
+
+[node name="StartPosition" type="Marker2D" parent="."]
+position = Vector2(576, 321)
+script = ExtResource("3_1c3uw")
+
+[node name="Hud" parent="." instance=ExtResource("4_irgsv")]
+
+[connection signal="start_game" from="Hud" to="." method="new_game"]

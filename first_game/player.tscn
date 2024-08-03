@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://dstmex0eaycla"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_2jdpy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ns5jx"]
+size = Vector2(40, 40)
+
+[node name="player" type="Area2D"]
+script = ExtResource("1_2jdpy")
+dashColor = Color(0.936572, 0.269622, 0.24858, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(2.08165e-12, 2.08165e-12)
+
+[node name="ColorRect" type="ColorRect" parent="Sprite2D"]
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ns5jx")
+metadata/_edit_group_ = true
+
+[node name="Dash_Timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="Dash_Cooldown" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="timeout" from="Dash_Timer" to="." method="_on_dash_timer_timeout"]
+[connection signal="timeout" from="Dash_Cooldown" to="." method="_on_dash_cooldown_timeout"]
