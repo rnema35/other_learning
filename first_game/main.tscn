@@ -1,9 +1,23 @@
-[gd_scene load_steps=5 format=3 uid="uid://dd5lsahxchuvh"]
+[gd_scene load_steps=6 format=3 uid="uid://dd5lsahxchuvh"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_85dwx"]
 [ext_resource type="PackedScene" uid="uid://dstmex0eaycla" path="res://player.tscn" id="1_87mxt"]
-[ext_resource type="Script" path="res://StartPosition.gd" id="3_1c3uw"]
 [ext_resource type="PackedScene" uid="uid://dy4gqxbk3i58q" path="res://hud.tscn" id="4_irgsv"]
+[ext_resource type="PackedScene" uid="uid://dhpguub85n45i" path="res://wall.tscn" id="5_5lyw1"]
+
+[sub_resource type="GDScript" id="GDScript_2tnxe"]
+script/source = "extends Marker2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
 
 [node name="main" type="Node"]
 script = ExtResource("1_85dwx")
@@ -13,8 +27,13 @@ metadata/_edit_group_ = true
 
 [node name="StartPosition" type="Marker2D" parent="."]
 position = Vector2(576, 321)
-script = ExtResource("3_1c3uw")
+script = SubResource("GDScript_2tnxe")
 
 [node name="Hud" parent="." instance=ExtResource("4_irgsv")]
 
+[node name="Wall" parent="." instance=ExtResource("5_5lyw1")]
+position = Vector2(831, 375)
+
+[connection signal="area_entered" from="Player" to="Player" method="_on_body_entered"]
 [connection signal="start_game" from="Hud" to="." method="new_game"]
+[connection signal="stop_game" from="Hud" to="." method="stop_game"]

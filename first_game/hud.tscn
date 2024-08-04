@@ -102,3 +102,4 @@ text = "Stop
 "
 
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="StopButton" to="." method="_on_stop_button_pressed"]

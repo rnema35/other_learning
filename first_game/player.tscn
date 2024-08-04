@@ -11,6 +11,7 @@ dashColor = Color(0.936572, 0.269622, 0.24858, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(2.08165e-12, 2.08165e-12)
+metadata/_edit_group_ = true
 
 [node name="ColorRect" type="ColorRect" parent="Sprite2D"]
 offset_left = -20.0
@@ -24,12 +25,13 @@ shape = SubResource("RectangleShape2D_ns5jx")
 metadata/_edit_group_ = true
 
 [node name="Dash_Timer" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 0.05
 one_shot = true
 
 [node name="Dash_Cooldown" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 0.5
 one_shot = true
 
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="Dash_Timer" to="." method="_on_dash_timer_timeout"]
 [connection signal="timeout" from="Dash_Cooldown" to="." method="_on_dash_cooldown_timeout"]

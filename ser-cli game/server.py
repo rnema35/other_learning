@@ -34,6 +34,9 @@ def threaded_client(connection):
         except:
             break
 
+    print("connection lost")
+    connection.close()
+
 while True:
     connection, address = s.accept()
     print("Connection to:", address)

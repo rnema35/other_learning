@@ -1,3 +1,7 @@
+ColorRect
+CollisionShape2D
+StaticBody2D
+Area2D
 Button
 Label
 CanvasLayer
