@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://bmld3o1nd67kj"]
+
+[ext_resource type="Script" path="res://player2.gd" id="1_ca8ik"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6mgva"]
+
+[node name="PLayer2" type="CharacterBody2D"]
+script = ExtResource("1_ca8ik")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_6mgva")
+
+[node name="ColorRect" type="ColorRect" parent="CollisionShape2D"]
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 10.0
+offset_bottom = 10.0
+
+[node name="Dash_Timer" type="Timer" parent="."]
+wait_time = 0.1
+
+[node name="Dash_Cooldown" type="Timer" parent="."]
+wait_time = 0.5
+
+[connection signal="timeout" from="Dash_Timer" to="." method="_on_dash_timer_timeout"]
+[connection signal="timeout" from="Dash_Cooldown" to="." method="_on_dash_cooldown_timeout"]

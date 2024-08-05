@@ -44,6 +44,10 @@ func _process(delta):
 		position += velocity * delta
 		position = position.clamp(Vector2.ZERO, screen_size)
 
+#func _physics_process(delta):
+	#get_input()
+	#move_and_collide(velocity * delta)
+
 func _on_dash_timer_timeout():
 	is_dashing = false
 	$Sprite2D/ColorRect.color = normColor

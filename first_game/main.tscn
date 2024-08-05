@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://dd5lsahxchuvh"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_85dwx"]
-[ext_resource type="PackedScene" uid="uid://dstmex0eaycla" path="res://player.tscn" id="1_87mxt"]
+[ext_resource type="PackedScene" uid="uid://b43x086w7lf0t" path="res://walls.tscn" id="4_e01l2"]
 [ext_resource type="PackedScene" uid="uid://dy4gqxbk3i58q" path="res://hud.tscn" id="4_irgsv"]
-[ext_resource type="PackedScene" uid="uid://dhpguub85n45i" path="res://wall.tscn" id="5_5lyw1"]
+[ext_resource type="PackedScene" uid="uid://bmld3o1nd67kj" path="res://player2.tscn" id="4_qbnlk"]
 
 [sub_resource type="GDScript" id="GDScript_2tnxe"]
 script/source = "extends Marker2D
@@ -22,18 +22,17 @@ func _process(delta):
 [node name="main" type="Node"]
 script = ExtResource("1_85dwx")
 
-[node name="Player" parent="." instance=ExtResource("1_87mxt")]
-metadata/_edit_group_ = true
-
 [node name="StartPosition" type="Marker2D" parent="."]
 position = Vector2(576, 321)
 script = SubResource("GDScript_2tnxe")
 
 [node name="Hud" parent="." instance=ExtResource("4_irgsv")]
 
-[node name="Wall" parent="." instance=ExtResource("5_5lyw1")]
-position = Vector2(831, 375)
+[node name="PLayer2" parent="." instance=ExtResource("4_qbnlk")]
+dashColor = Color(0.283665, 0.629136, 0.473356, 1)
+normColor = Color(0.0481925, 0.64867, 0.848769, 1)
 
-[connection signal="area_entered" from="Player" to="Player" method="_on_body_entered"]
+[node name="Walls" parent="." instance=ExtResource("4_e01l2")]
+
 [connection signal="start_game" from="Hud" to="." method="new_game"]
 [connection signal="stop_game" from="Hud" to="." method="stop_game"]

@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://b43x086w7lf0t"]
+
+[ext_resource type="PackedScene" uid="uid://dhpguub85n45i" path="res://wall.tscn" id="1_ddb4t"]
+
+[node name="Walls" type="Node"]
+
+[node name="Wall" parent="." instance=ExtResource("1_ddb4t")]
+position = Vector2(274, 343)
+
+[node name="Wall2" parent="." instance=ExtResource("1_ddb4t")]
+position = Vector2(229, 392)
+scale = Vector2(1, 10)

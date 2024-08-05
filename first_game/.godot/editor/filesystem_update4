@@ -1,7 +1,10 @@
 res://player.tscn
-res://main.tscn
-res://hud.tscn
-res://CanvasLayer.gd
-res://main.gd
-res://wall.tscn
 res://player.gd
+res://player2.tscn
+res://main.tscn
+res://wall.tscn
+res://player2.gd
+res://main.gd
+res://CanvasLayer.gd
+res://hud.tscn
+res://walls.tscn

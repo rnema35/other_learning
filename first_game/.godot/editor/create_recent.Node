@@ -1,9 +1,11 @@
+Node
+Timer
 ColorRect
 CollisionShape2D
+CharacterBody2D
 StaticBody2D
 Area2D
 Button
 Label
 CanvasLayer
 Marker2D
-Node
